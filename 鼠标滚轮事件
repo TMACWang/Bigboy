@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		div{
+			width:200px;
+			height:200px;
+			background:deepskyblue;
+		}
+	</style>
+</head>
+<body>
+	<h2></h2>
+	<div></div>
+	<script>
+		oH2=document.querySelector("h2");
+		oDiv=document.querySelector("div");
+		oDiv.onmousewheel=mousewheelHandler;
+		if(oDiv.addEventListener){
+			oDiv.addEventListener("mousewheel",mousewheelHandler,false)
+		}
+        function mousewheelHandler(event){
+        	event=event||window.event;
+        	if(event.wheelDelta){
+        		var direction=event.wheelDelta>0?1:-1;
+        	}else if(event.detail){
+        		var direction=event.detail>0?-1:1
+        	}
+        	oH2.innerHTML=direction;
+        }
+	</script>
+</body>
+</html>
